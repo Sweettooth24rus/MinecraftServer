@@ -17,9 +17,11 @@ public class Connection extends TimerTask {
 
     public void run() {
         try {
-            outStream.write(PhraseRepository.getPhrase());
+            String message = PhraseRepository.getPhrase();
+            outStream.write(message);
             outStream.newLine();
             outStream.flush();
+            System.out.println(outStream + " " + message);
         }
         catch (Exception ignored) {
         }

@@ -7,11 +7,12 @@ import java.util.List;
 import java.util.Random;
 
 public class PhraseRepository {
+    private static final String fileName = "phrases.txt"; // Путь к файлу
     private static List<String> phrases;
     private static final Random rand = new Random();
 
     public static void readFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("phrases.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             phrases = List.copyOf(reader.lines().toList());
         }
         catch(IOException e){
